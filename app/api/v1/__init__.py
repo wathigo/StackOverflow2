@@ -3,3 +3,6 @@ from flask import Blueprint
 
 version_one = Blueprint('api_v1', __name__, url_prefix='/api/v1')
 api = Api(version_one)
+
+from .views_question.views import Question
+api.add_resource(Question, '/questions')
