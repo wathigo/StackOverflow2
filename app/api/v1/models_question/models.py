@@ -25,3 +25,15 @@ class QuestionRecords():
             if question['id'] == id:
                 return question
         return result
+
+    def empty_records(self):
+        del question_rec[:]
+        return question_rec
+
+    def del_record(self, id):
+        rec = self.find(id)
+        if rec:
+            question_rec.remove(rec)
+            return question_rec
+        else:
+            return rec

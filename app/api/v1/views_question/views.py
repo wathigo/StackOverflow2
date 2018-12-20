@@ -14,6 +14,10 @@ class Question(Resource, QuestionRecords):
          res = self.records.save(category, question)
          return make_response(jsonify({"My new records are": res}), 201)
 
+    def delete(self):
+        res = self.records.empty_records()
+        return make_response(jsonify({"My new records are": res}), 200)
+
     def get(self):
         res = self.records.get_records()
         return make_response(jsonify({"My new records are": res}), 200)
@@ -26,5 +30,12 @@ class QuestionId(Resource, QuestionRecords):
         rec = self.records.find(id)
         if rec:
             return make_response(jsonify({"My new records are": rec}), 200)
+        else:
+            return make_response(jsonify({"Msg": "Question record not found"}), 404)
+
+    def delete(self, id):
+        res = self.records.del_record(id)
+        if res:
+            return make_response(jsonify({"My new records are": res}), 200)
         else:
             return make_response(jsonify({"Msg": "Question record not found"}), 404)
