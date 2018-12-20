@@ -13,3 +13,18 @@ class Question(Resource, QuestionRecords):
          question = data['question']
          res = self.records.save(category, question)
          return make_response(jsonify({"My new records are": res}), 201)
+
+    def get(self):
+        res = self.records.get_records()
+        return make_response(jsonify({"My new records are": res}), 200)
+
+class QuestionId(Resource, QuestionRecords):
+    def __init__(self):
+        self.records = QuestionRecords()
+
+    def get(self, id):
+        rec = self.records.find(id)
+        if rec:
+            return make_response(jsonify({"My new records are": rec}), 200)
+        else:
+            return make_response(jsonify({"Msg": "Question record not found"}), 404)
