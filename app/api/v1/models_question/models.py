@@ -6,7 +6,7 @@ class QuestionRecords():
     def __init__(self):
         self.rec = question_rec
 
-    def save(self, question, category):
+    def save(self, category, question):
         data = {
         "id": len(question_rec) + 1,
         "postedOn":datetime.datetime.now(),
@@ -37,3 +37,15 @@ class QuestionRecords():
             return question_rec
         else:
             return rec
+
+    def replace(self, id, category, question):
+        item = self.find(id)
+        if item:
+            i = 0
+            while i < len(question_rec):
+                for record in question_rec:
+                    if record == item:
+                        record['category'] = category
+                        record['question'] = question
+                        return question_rec
+        return item

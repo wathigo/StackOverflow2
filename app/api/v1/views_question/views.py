@@ -39,3 +39,13 @@ class QuestionId(Resource, QuestionRecords):
             return make_response(jsonify({"My new records are": res}), 200)
         else:
             return make_response(jsonify({"Msg": "Question record not found"}), 404)
+
+    def put(self, id):
+        data = request.get_json()
+        category = data['category']
+        question = data['question']
+        res = self.records.replace(id, category, question)
+        if res:
+            return make_response(jsonify({"My updated records are": res}), 200)
+        else:
+            return make_response(jsonify({"Msg": "Question record not found"}), 404)
