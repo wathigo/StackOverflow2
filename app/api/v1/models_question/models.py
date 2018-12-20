@@ -15,3 +15,13 @@ class QuestionRecords():
         }
         question_rec.append(data)
         return question_rec
+
+    def get_records(self):
+        return question_rec
+
+    def find(self, id):
+        result = False
+        for question in question_rec:
+            if question['id'] == id:
+                return question
+        return result
