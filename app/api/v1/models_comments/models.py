@@ -14,3 +14,17 @@ class CommentRecord():
         }
         self.rec.append(data)
         return self.rec
+
+    def find(self, answer_id):
+        items = []
+        for item in self.rec:
+            if item['answer_id'] == answer_id:
+                items.append(item)
+        return items
+
+    def get_item(self, answer_id):
+        res = self.find(answer_id)
+        if res is not None:
+            return res
+        else:
+            return False
