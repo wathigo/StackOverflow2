@@ -15,3 +15,18 @@ class UserRecords():
         }
         self.rec.append(data)
         return self.rec
+
+    def find(self, email):
+        for item in user_rec:
+            if item['email'] == email:
+                return item['password']
+        return False
+
+    def authenticate(self, email, password):
+        response = self.find(email)
+        if response:
+            if response == password:
+                return True
+            else:
+                return False
+        return Response
