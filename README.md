@@ -1,5 +1,5 @@
 ## StackOverflow-Lite API
-[![Build Status](https://travis-ci.org/wathigo/StackOverflow2.svg?branch=develop)](https://travis-ci.org/wathigo/StackOverflow2)
+[![Coverage Status](https://coveralls.io/repos/github/wathigo/StackOverflow2/badge.svg?branch=develop)](https://coveralls.io/github/wathigo/StackOverflow2?branch=develop)
 
 This is a project aimed at developing API endpoints for the StackOverflow-lite.
 StackOverflow-lite is a platform where users can ask questions, contribute to answering question or even comment on the answers already provided.
