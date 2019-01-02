@@ -15,4 +15,4 @@ branches:
     - develop
 
 after_success:
-   - coverall
+   - coveralls
